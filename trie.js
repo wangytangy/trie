@@ -19,9 +19,10 @@ const dict = {
 }
 
 class Node {
-  constructor(children = {}, isComplete = false) {
-    this.children = children;
-    this.isComplete = isComplete;
+  constructor(key, value, children) {
+    this.key = key;
+    this.value = undefined;
+    this.children = [];
   }
 }
 
