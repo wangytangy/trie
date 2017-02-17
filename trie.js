@@ -30,12 +30,7 @@ class Trie {
     this.root = new Node();
   }
 
-  insert(word, node = this.root) {
-    // iterate through string
-    for (let i = 0; i < word.length; i++) {
-      // if root is empty, store letter in root's children
-
-    }
+  add(word) {
 
   }
 
