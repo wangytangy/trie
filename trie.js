@@ -1,9 +1,8 @@
-//Trie Data Structure
+/**
+  TRIE DATA STRUCTURE
 
-// stores a dictionary of strings
-
-
-// INSERTION
+  O(n) time for search and add functions
+**/
 
 const dict = [
   "car",
@@ -20,8 +19,7 @@ const dict = [
 ];
 
 /**
-
-this.root = {
+root = {
   "c": {
     "ca": {
       "car": {
@@ -34,13 +32,18 @@ this.root = {
         }
       },
       "cat": {
-
+        ...
+      }
+    }
+  },
+  "t": {
+    "tr": {
+      "try": {
+        ...
       }
     }
   }
 }
-
-
 **/
 
 class Node {
@@ -110,15 +113,4 @@ class Trie {
     }
     return childValues;
   }
-
 }
-
-let trie = new Trie();
-
-dict.forEach((word) => {
-  trie.add(word);
-});
-trie.add("cardinal");
-
-// console.log(JSON.stringify(trie, null, 4));
-console.log(trie.getChildrenOf("trz"));
