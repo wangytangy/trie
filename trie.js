@@ -91,10 +91,24 @@ class Trie {
     }
   }
 
-  getChildren(prefix, node = this.root) {
-    //returns an array of a children nodes' values
-    let charIdx = 1;
-    let currentChar = prefix.slice(0, charIdx);
+  //returns an array of a children nodes' values
+  getChildrenOf(prefix, node = this.root) {
+    //get to the prefix node
+    let prefixNode = this.search(prefix, node);
+    if (prefixNode === null) return [];
+
+    //get all children for every node starting from prefix node
+    let childValues = [];
+    let queue = [prefixNode];
+    while (queue.length !== 0) {
+      let childkeys = Object.keys(queue[0].children);
+      childkeys.forEach((key) => {
+        childValues.push(queue[0].children[key].val);
+        queue.push(queue[0].children[key]);
+      });
+      queue.shift();
+    }
+    return childValues;
   }
 
 }
@@ -107,4 +121,4 @@ dict.forEach((word) => {
 trie.add("cardinal");
 
 // console.log(JSON.stringify(trie, null, 4));
-console.log(trie.search("cardin"));
+console.log(trie.getChildrenOf("trz"));
